@@ -6,6 +6,7 @@ import CercaArtista from "./CercaArtista"
 import CercaTraccia from "./CercaTraccia"
 import Errore from "./Errore"
 
+// questo file serve SOLO per gestire le route
 
 const App = () => {
 	return (
