@@ -18,7 +18,7 @@ const HomePage = () => {
 			<div id="HomePage" className="container">
 
 				<img id="img" src="/Spotify_Logo_Green.png" alt="Spotify logo" />
-				<h1 id="titolo">Spotify Browser</h1>
+				<h1 id="titolo">Progetto Spotify</h1>
 				<h4>Accedi al tuo profilo Spotify per ottenere tutte le funzionalità del sito</h4>
 				<input type="button" value="Accedi" onClick={Controlla} className="btn" />
 
