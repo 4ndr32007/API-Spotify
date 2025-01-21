@@ -2,11 +2,10 @@ import React from 'react'
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import HomePage from "./HomePage"
 import Login from "./Login"
-import CercaArtista from "./CercaArtista"
-import CercaTraccia from "./CercaTraccia"
 import Errore from "./Errore"
+import ApiCall from "./ApiCall"
 
-// questo file serve SOLO per gestire le route
+// questo file serve SOLO per gestire le routes
 
 const App = () => {
 	return (
@@ -14,9 +13,8 @@ const App = () => {
 			<BrowserRouter>
 				<Routes>
 					<Route path="/" element={<HomePage />} />
-					<Route path="/artist-search" element={<CercaArtista />} />
-					<Route path="/track-search" element={<CercaTraccia />} />
 					<Route path="/login" element={<Login />} />
+					<Route path="/callback" element={<ApiCall />} />
 					<Route path="*" element={<Errore />} />
 				</Routes>
 			</BrowserRouter>

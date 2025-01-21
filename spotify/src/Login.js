@@ -1,30 +1,31 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react"
 
 // questa pagina viene mostrata quando viene premuto il btn della HomePage, dopo il login bisogna fare le chiamate alle API
 // per ottenere le informazioni riguardanti l'account loggato come le playlist eccetera
-
 const client_id = "f5fc481f3c9f49c8be605ba52786ab33";
-const redirect_uri = "http://localhost:3000/callback";
-const scope = "user-read-private user-read-email";
+const redirect_url = "http://localhost:3000/callback";  // Questo URL deve essere lo stesso che hai configurato nel Dashboard di Spotify
+const scope = "playlist-read-private%20playlist-read-collaborative";  // Permessi richiesti, separati da %20 per lo spazio
+const UrlBase = "https://accounts.spotify.com/authorize";  // Base URL di Spotify per la login
+
 
 const Login=()=>{
-	const apri = useNavigate();
+
 
 	const AccessoSpotify = () => {
-		const authURL = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=code&redirect_uri=${redirect_uri}&scope=${encodeURIComponent(
-		scope
-		)}`;
-		
-		// Naviga alla pagina di autorizzazione di Spotify
-		apri(authURL, { replace: true });
-};
+		const authURL = `${UrlBase}?client_id=${client_id}&redirect_uri=${redirect_url}&scope=${scope}&response_type=token&show_dialog=true`;
 
-return (
-	<div>
-		<input type="button" value="Accedi" className="btn" onClick={AccessoSpotify} />
-	</div>
-);
+		// Naviga alla pagina di autorizzazione di Spotify
+		window.location.href = authURL;
+
+		//la richiesta di accesso dovrebbe restituire un token di accesso che identifica 
+		// univocamente l'utente, ma bisogna vedere come prenderlo
+	}
+
+	return (
+		<div>
+			<input type="button" value="Accedi" className="btn" onClick={AccessoSpotify} />
+		</div>
+	)
 }
 
 export default Login;
