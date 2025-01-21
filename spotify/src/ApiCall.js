@@ -11,9 +11,13 @@ const ApiCall = () => {
 		
 		if (rawToken) {
 			// Rimuovo il simbolo '#' e ottiengo il token, ma ci sono ancora altri parametri che non servono
+		
+			//la funzione URLSearchParams() permette di analizzare automaticamente l'URL che gli viene 
+			//passato e in automantico ne restituisce i rispettivi chave valore, in maniera tale da facilitare la ricerca del token
+
 			const parametri = new URLSearchParams(rawToken.substring(1));
 
-			//ottengo l'access token dai parametri passati tramite l'URL dal API
+			//cerca nel URL quindi in parametri una chiave di valore "access_token" e ne restituisci il valore nella variabile accessToken
 			const accessToken = parametri.get("access_token");
 
 			if (accessToken) {
