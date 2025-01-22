@@ -1,5 +1,5 @@
 /*
-questa pagina viene mostrata dopo che l'utente ha fatto l'accesso con il suo account
+questa pagina viene mostrata dopo che l'utente hafatto l'accesso con il suo account
 */
 import React, { useEffect } from 'react'
 
