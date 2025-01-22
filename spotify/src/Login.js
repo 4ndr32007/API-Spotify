@@ -4,6 +4,9 @@ import React from "react"
 // per ottenere le informazioni riguardanti l'account loggato come le playlist eccetera
 const client_id = "f5fc481f3c9f49c8be605ba52786ab33";
 const redirect_url = "http://localhost:3000/callback";  // Questo URL deve essere lo stesso che hai configurato nel Dashboard di Spotify
+
+//con gli scoeps settati così possiamo lavorare SOLO sulle playlist, dal momento in cui volessimo avere altri pemessi bisogna accodarli a questi
+
 const scope = "playlist-read-private%20playlist-read-collaborative";  // Permessi richiesti, separati da %20 per lo spazio
 const UrlBase = "https://accounts.spotify.com/authorize";  // Base URL di Spotify per la login
 
