@@ -2,6 +2,7 @@
 questa pagina viene mostrata dopo che l'utente hafatto l'accesso con il suo account
 */
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const URL="https://api.spotify.com/v1/me"
 
@@ -10,7 +11,7 @@ const URL="https://api.spotify.com/v1/me"
 // LE INFORMAZIONI DELL'UTENTE
 
 const ApiCall = () => {
-
+	const apri=useNavigate()
 	//stato per contenere il JSON, lo dichiaro a null perchè spotify restituisce un oggetto JSON
 	const [data, setData] = useState(null)
 
@@ -55,7 +56,9 @@ Appena viene redirezionato verso questa pagina avverrà la chiamata alle API, il
 	}, [])
 
 return (
-	<div></div>
+	<div>
+		{apri("/")}
+	</div>
 )
 }
 
