@@ -1,37 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
-#spotifyThings {
-	background: linear-gradient(to bottom, #375534, #1a1313);
-	/* background-color: #121212; */
+#container {
+	background: linear-gradient(to top, #375534, #1a1313);
 	font-family: 'Inter', sans-serif;
 	margin: 0;
 	padding: 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 90vh;
-	
-}
-
-#HomePage {
-	text-align: center;
+	height: 100vh;
 	color: white;
-	max-width: 400px;
-	padding: 20px;
-	background-color: #1c1c1c;
-	border-radius: 15px;
-	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+	text-align: center;
 }
 
-#img {
+.login-box {
+	background: rgba(0, 0, 0, 0.8);
+	padding: 40px;
+	border-radius: 15px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+	max-width: 400px;
+	width: 100%;
+}
+
+.img {
 	width: 150px;
 	margin-bottom: 20px;
 }
 
-#titolo {
-	font-size: 24px;
+.btn {
+	background-color: #1DB954;
+	border: none;
+	border-radius: 25px;
+	color: rgb(0, 0, 0);
+	cursor: pointer;
+	font-size: 16px;
 	font-weight: 700;
-	margin-bottom: 10px;
+	padding: 10px 20px;
+	transition: background-color 0.3s ease, transform 0.2s ease;
+}
+ 
+.btn:hover {
+	background-color: #1ed760;
+	transform: scale(1.05);
+}
+ 
+.btn:active {
+	transform: scale(0.95);
+}
+
+.privacy-text {
+	margin-top: 20px;
+	font-size: 14px;
+	color: #bbb;
+}
+.privacy-text a {
+	color: #1DB954;
+	text-decoration: none;
+}
+
+.privacy-text a:hover {
+	text-decoration: underline;
 }
 
 h4 {
@@ -63,7 +91,9 @@ h4 {
 }
 
 #piede{
-	background-color: #1a1313;
+	/* background-color: #375534; */
+	background: linear-gradient(to bottom, #375534, #1a1313);
+
 	color: #b3b3b3;
 	width: 100%;
 	height: 10vh;
@@ -77,3 +107,33 @@ h4 {
 	font-size: 14px;
 	color: #f5f5fa;
 }
+
+/* Contenitore principale della navbar */
+.navbar-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #1a1313;
+	padding: 10px 20px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Stile per il menu a tendina */
+select {
+	background-color: transparent; /* Sfondo trasparente */
+	border: 1px solid #375534;     /* Bordi con colore verde Spotify */
+	border-radius: 0;              /* Angoli non arrotondati */
+	color: #ffffff;                /* Testo con colore verde Spotify */
+	padding: 10px;                 /* Spaziatura interna */
+	font-size: 16px;               /* Dimensione del testo */
+	cursor: pointer;               /* Indicatore del mouse a forma di puntatore */
+	outline: none;                 /* Rimozione del contorno predefinito */
+	appearance: none;              /* Rimozione dello stile predefinito */
+}
+
+/* Stile per le opzioni del menu a tendina */
+select option {
+	background-color: white;       /* Sfondo bianco per le opzioni */
+	color: #d0d6d2;                /* Testo con colore verde Spotify */
+}
+ 
