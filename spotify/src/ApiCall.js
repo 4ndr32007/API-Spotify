@@ -11,7 +11,9 @@ const URL="https://api.spotify.com/v1/me"
 // LE INFORMAZIONI DELL'UTENTE
 
 const ApiCall = () => {
-	let flag = false
+	
+	const [flag, setFlag] = useState(false)
+
 	const apri=useNavigate()
 	//stato per contenere il JSON, lo dichiaro a null perchè spotify restituisce un oggetto JSON
 	const [data, setData] = useState(null)
@@ -52,7 +54,7 @@ const ApiCall = () => {
 			console.log("Risposta FUORI dallo stato: " , responseJson)
 			setData(responseJson)
 			//dato che il JSON è stato correttamente caricato posso reindirizzare l'utente
-			flag=true
+			setFlag(true)
 		})
 
 	}, [])

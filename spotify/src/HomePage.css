@@ -1,99 +1,117 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
-#container {
-	background: linear-gradient(to top, #375534, #1a1313);
-	font-family: 'Inter', sans-serif;
-	margin: 0;
-	padding: 0;
+.navbar-container {
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
-	height: 100vh;
-	color: white;
-	text-align: center;
-}
-
-.login-box {
-	background: rgba(0, 0, 0, 0.8);
-	padding: 40px;
-	border-radius: 15px;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-	max-width: 400px;
+	background-color:linear-gradient(to bottom, #1a1313, #0c0909);
+	padding: 20px 40px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+	border-radius: 8px;
+	position: fixed;
 	width: 100%;
 }
 
-.img {
-	width: 150px;
-	margin-bottom: 20px;
+#container-img {
+	display: flex;
+	align-items: center;
 }
 
-.btn {
-	background-color: #1DB954;
-	border: none;
-	border-radius: 25px;
-	color: rgb(0, 0, 0);
+#SpotifyLogo {
+	height: 40px;
+	width: auto;
 	cursor: pointer;
+	transition: transform 0.3s ease;
+}
+
+#SpotifyLogo:hover {
+	transform: scale(1.1);
+}
+
+.selezione select{
+	font-family: 'Inter', sans-serif;
+	background-color: transparent;
+	border: 2px solid #375534;
+	color: #ffffff;
 	font-size: 16px;
+	cursor: pointer;
+	appearance: none;
+	transition: all 0.3s ease;
+	border-radius: 12px;
+	width: 180px;
+	height: 45px;
+	margin-right: 150px;
+	padding-top: 9px;
+	padding-left: 30px;
+	padding-bottom: 10px;
+}
+
+.selezione select:hover, .selezione select:focus {
+	border-color: #1DB954;
+}
+
+.selezione select option {
+	background-color: #1a1313;
+	color: #eff2f0;
+}
+
+.selezione select:hover,
+.selezione select:focus {
+	border-color: #1DB954;
+}
+
+.selezione select:focus::after {
+	transform: translateY(-50%) rotate(180deg);
+}
+ 
+
+#container-intestazione {
+	background: linear-gradient(to top, #375534, #1a1313);
+	font-family: 'Inter', sans-serif;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	text-align: center;
+	padding: 100px 20px 20px 20px;
+}
+
+#container-intestazione h1 {
+	font-size: 42px;
 	font-weight: 700;
-	padding: 10px 20px;
-	transition: background-color 0.3s ease, transform 0.2s ease;
-}
- 
-.btn:hover {
-	background-color: #1ed760;
-	transform: scale(1.05);
-}
- 
-.btn:active {
-	transform: scale(0.95);
+	margin-bottom: 15px;
+	color: #B8FFD1;
+	text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-.privacy-text {
-	margin-top: 20px;
-	font-size: 14px;
-	color: #bbb;
-}
-.privacy-text a {
-	color: #1DB954;
-	text-decoration: none;
+#container-intestazione h2 {
+	font-size: 26px;
+	font-weight: 600;
+	margin-bottom: 20px;
+	color: #ffffff;
 }
 
-.privacy-text a:hover {
-	text-decoration: underline;
+#container-intestazione p {
+	font-size: 18px;
+	color: #f5f5f5;
+	margin-bottom: 15px;
+	line-height: 1.6;
+}
+
+#container-intestazione p:last-child {
+	margin-top: 30px;
 }
 
 h4 {
-	font-size: 16px;
+	font-size: 18px;
 	font-weight: 400;
 	color: #b3b3b3;
 	margin-bottom: 20px;
 }
 
-.btn {
-	background-color: #1DB954;
-	border: none;
-	border-radius: 25px;
-	color: rgb(0, 0, 0);
-	cursor: pointer;
-	font-size: 16px;
-	font-weight: 700;
-	padding: 10px 20px;
-	transition: background-color 0.3s ease, transform 0.2s ease;
-}
- 
-.btn:hover {
-	background-color: #1ed760;
-	transform: scale(1.05);
-}
- 
-.btn:active {
-	transform: scale(0.95);
-}
-
 #piede{
-	/* background-color: #375534; */
 	background: linear-gradient(to bottom, #375534, #1a1313);
-
 	color: #b3b3b3;
 	width: 100%;
 	height: 10vh;
@@ -106,34 +124,4 @@ h4 {
 #nomi{
 	font-size: 14px;
 	color: #f5f5fa;
-}
-
-/* Contenitore principale della navbar */
-.navbar-container {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	background-color: #1a1313;
-	padding: 10px 20px;
-	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Stile per il menu a tendina */
-select {
-	background-color: transparent; /* Sfondo trasparente */
-	border: 1px solid #375534;     /* Bordi con colore verde Spotify */
-	border-radius: 0;              /* Angoli non arrotondati */
-	color: #ffffff;                /* Testo con colore verde Spotify */
-	padding: 10px;                 /* Spaziatura interna */
-	font-size: 16px;               /* Dimensione del testo */
-	cursor: pointer;               /* Indicatore del mouse a forma di puntatore */
-	outline: none;                 /* Rimozione del contorno predefinito */
-	appearance: none;              /* Rimozione dello stile predefinito */
-}
-
-/* Stile per le opzioni del menu a tendina */
-select option {
-	background-color: white;       /* Sfondo bianco per le opzioni */
-	color: #d0d6d2;                /* Testo con colore verde Spotify */
-}
- 
+} 
