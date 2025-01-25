@@ -4,7 +4,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	background-color:linear-gradient(to bottom, #1a1313, #0c0909);
+	background-color: linear-gradient(to bottom, #1a1313, #0c0909);
 	padding: 20px 40px;
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 	border-radius: 8px;
@@ -63,7 +63,6 @@
 .selezione select:focus::after {
 	transform: translateY(-50%) rotate(180deg);
 }
- 
 
 #container-intestazione {
 	background: linear-gradient(to top, #375534, #1a1313);
@@ -103,6 +102,14 @@
 	margin-top: 30px;
 }
 
+#disclaimer {
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: #b49036;
+	padding: 10px;
+	display: inline-block;
+}
+
 h4 {
 	font-size: 18px;
 	font-weight: 400;
@@ -125,3 +132,53 @@ h4 {
 	font-size: 14px;
 	color: #f5f5fa;
 } 
+
+
+.login-box {
+	background: rgba(0, 0, 0, 0.8);
+	padding: 40px;
+	border-radius: 15px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+	max-width: 400px;
+	width: 100%;
+}
+
+.img {
+	width: 150px;
+	margin-bottom: 20px;
+}
+
+.btn {
+	background-color: #1DB954;
+	border: none;
+	border-radius: 25px;
+	color: rgb(0, 0, 0);
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: 700;
+	padding: 10px 20px;
+	transition: background-color 0.3s ease, transform 0.2s ease;
+}
+ 
+.btn:hover {
+	background-color: #1ed760;
+	transform: scale(1.05);
+}
+ 
+.btn:active {
+	transform: scale(0.95);
+}
+
+.privacy-text {
+	margin-top: 20px;
+	font-size: 14px;
+	color: #bbb;
+}
+.privacy-text a {
+	color: #1DB954;
+	text-decoration: none;
+}
+
+.privacy-text a:hover {
+	text-decoration: underline;
+}

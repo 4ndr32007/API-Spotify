@@ -3,6 +3,7 @@ questa pagina viene mostrata dopo che l'utente hafatto l'accesso con il suo acco
 */
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import {useUser} from "./DataContext"
 
 const URL="https://api.spotify.com/v1/me"
 
@@ -13,10 +14,9 @@ const URL="https://api.spotify.com/v1/me"
 const ApiCall = () => {
 	
 	const [flag, setFlag] = useState(false)
-
+	//destrutturo lo stato nel file DataContext.js, così ottengo solamente il setStato
+	const {setUserdata} = useUser()
 	const apri=useNavigate()
-	//stato per contenere il JSON, lo dichiaro a null perchè spotify restituisce un oggetto JSON
-	const [data, setData] = useState(null)
 	let token = null
 
 	useEffect(() => {
@@ -52,7 +52,7 @@ const ApiCall = () => {
 		.then(testo=>testo.json())
 		.then((responseJson)=>{
 			console.log("Risposta FUORI dallo stato: " , responseJson)
-			setData(responseJson)
+			setUserdata(responseJson)
 			//dato che il JSON è stato correttamente caricato posso reindirizzare l'utente
 			setFlag(true)
 		})
@@ -62,7 +62,7 @@ const ApiCall = () => {
 	// Naviga una volta che i dati sono stati caricati
 	useEffect(() => {
 		if (flag) {
-			apri("/")
+			apri("/dashboard")
 		}
 	}, [flag])
 

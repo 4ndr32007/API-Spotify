@@ -17,7 +17,6 @@ const HomePage = () => {
 
 	return (
 		<div>
-
 			<div className="navbar-container">
 				<div id='container-img'><img src='/Spotify_Logo_Green.png' alt='Spotify Logo' id='SpotifyLogo' onClick={Spotify}></img></div>
 					<div className="selezione">
@@ -33,7 +32,7 @@ const HomePage = () => {
 				<h2>Esplora il mondo della musica in un click</h2>
 				<p>Sound JS è un'applicazione web che ti permette di esplorare il vasto universo musicale attraverso l'integrazione con le API di Spotify.</p>
 				<p>Cerca i tuoi artisti preferiti, scopri nuove tracce e crea playlist personalizzate per ogni momento.</p>
-				<p>Inizia subito il tuo viaggio musicale!</p>
+				<p ><b id="disclaimer">Effettua il login per accedere a tutte le funzionalità della web-APP</b></p>
 			</div>
 
 			<div id='piede'>
