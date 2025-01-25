@@ -27,12 +27,15 @@ const HomePage = () => {
 						</select>
 					</div>
 			</div>
+
+
 			<div id="container-intestazione">
 				<h1>Benvenuto su Sound JS</h1>
 				<h2>Esplora il mondo della musica in un click</h2>
 				<p>Sound JS è un'applicazione web che ti permette di esplorare il vasto universo musicale attraverso l'integrazione con le API di Spotify.</p>
 				<p>Cerca i tuoi artisti preferiti, scopri nuove tracce e crea playlist personalizzate per ogni momento.</p>
 				<p ><b id="disclaimer">Effettua il login per accedere a tutte le funzionalità della web-APP</b></p>
+				<input type="button" id='btn' value="Inizia ora" onClick={() => apri('/login')}></input>
 			</div>
 
 			<div id='piede'>
