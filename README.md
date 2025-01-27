@@ -8,5 +8,3 @@ Spiegazione  : https://www.youtube.com/watch?v=1vR3m0HupGI&t=252s
 Esempi di API di spotify ufficiali: https://developer.spotify.com
 
 LINK di tutti i permessi: https://developer.spotify.com/documentation/web-api/concepts/scopes?utm_source=chatgpt.com
-
-GUARDA IL FILE CHE HO CARICATO LUNEDI' MATTINA 
