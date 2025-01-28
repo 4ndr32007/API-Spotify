@@ -4,24 +4,26 @@ import HomePage from "./HomePage"
 import Login from "./Login"
 import Errore from "./Errore"
 import ApiCall from "./ApiCall"
-import DashBoard from './DashBoard'
+import DashBoard from './TopArtisti'
+import FunctionPage from './HomePage2'
 
 export const UserContext = createContext()
 
 const App = () => {
-
 	const [data, setData] = useState(null)
+	let login = false
 
 	return (
 		<div>
 		{/* avvolgo TUTTE le route con il provider perchè devono avere l'accesso alla risorsa condivisa */}
-			<UserContext.Provider value={{ data, setData }}>
+			<UserContext.Provider value={{ data, setData, login }}>
 				<BrowserRouter>
 					<Routes>
 						<Route path="/" element={<HomePage />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/callback" element={<ApiCall />} />
-						<Route path="/dashboard" element={<DashBoard />} />
+						<Route path="/top-artisti" element={<DashBoard />} />
+						<Route path="/funzioni" element={<FunctionPage />} />
 						<Route path="*" element={<Errore />} />
 					</Routes>
 				</BrowserRouter>

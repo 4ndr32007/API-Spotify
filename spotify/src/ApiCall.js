@@ -1,143 +1,86 @@
-// import React, { useContext, useEffect, useState } from 'react'
-// import { useNavigate } from 'react-router-dom'
-// import { UserContext } from "./App.js"
-
-// const URL="https://api.spotify.com/v1/me"
-
-// const ApiCall = () => {
-
-// 	const [flag, setFlag] = useState(false)
-// 	const { data, setData } = useContext(UserContext)
-// 	const apri=useNavigate()
-// 	let token = null
-
-// 	useEffect(() => {
-// 		/*
-// 		Appena viene redirezionato verso questa pagina avverrà la chiamata alle API, il token va recuperato dall'URL e mi permette
-// 		di prendere la stringa che compone il token a partire dal "#" che segnala l'inizio del token
-// 		*/
-// 		const rawToken = window.location.hash
-// 		console.log("URL preso e stampato come lo restituisce l'API" + "\n" + rawToken)
-		
-// 		if (rawToken != null && rawToken != "") {
-// 			//Rimuovo il simbolo '#' e ottiengo il token, ma ci sono ancora altri parametri che non servono				
-// 			//La funzione URLSearchParams() permette di analizzare automaticamente l'URL che gli viene  passato e in automantico ne 
-// 			//restituisce i rispettivi chave valore, in maniera tale da facilitare la ricerca del token
-			
-// 			const parametri = new URLSearchParams(rawToken.substring(1))
-// 			//cerca nel URL quindi in parametri una chiave di valore "access_token" e ne restituisci il valore nella variabile token
-// 			token = parametri.get("access_token")
-// 			console.log("Token pronto per l'uso:", token)
-// 			//una volta ottenuto il token si può fare la chiamata alle API		
-// 		}
-
-// 		//chiamta al API
-// 		fetch(URL,{
-// 			//GET perchè ho bisgono di ricevere un JSON
-// 			method:"GET",
-// 			headers:{
-// 				//per fare la chiamata alle API bisogna passare l'access token
-// 				"Authorization":`Bearer ${token}`
-// 			}
-// 		})
-// 		.then(testo=>testo.json())
-// 		.then((testoJson)=>{
-// 			console.log("oggetto: " , testoJson)
-// 			setData(testoJson)
-// 			//dato che il JSON è stato correttamente caricato posso reindirizzare l'utente
-// 		})
-		
-// 		// fetch(data.href,{
-// 		// 	method:"GET",
-// 		// 	headers:{
-// 		// 		//per fare la chiamata alle API bisogna passare l'access token
-// 		// 		"Authorization":`Bearer ${token}`
-// 		// 	}
-// 		// })
-// 		// .then(testo=>testo.json())
-// 		// .then((testoJson)=>{
-// 		// 	console.log("Oggetto seconda fetch: " , JSON.stringify(testoJson))
-// 		// 	setFlag(true)
-// 		// })
-
-// 	}, [])
-
-// 	// Naviga una volta che i dati sono stati caricati
-// 	useEffect(() => {
-// 		if (flag) {
-// 			apri("/dashboard")
-// 		}
-// 	}, [flag])
-
-// return (
-// 	<div></div>
-// )
-// }
-
-// export default ApiCall
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from "./App.js"
 
-const URL = "https://api.spotify.com/v1/me"
+
+const URL="https://api.spotify.com/v1/me"
 const URL2 = "https://api.spotify.com/v1/me/top/artists"
 
 const ApiCall = () => {
-	const [flag, setFlag] = useState(false)
-	const [userData, setUserData] = useState(null)
-	const [token, setToken] = useState(null)
-	const { data, setData } = useContext(UserContext)
-	const apri = useNavigate()
 
-	// Extract token from URL hash
+	//quando cambia il valore di questo flag avviene la navigazione verso la dashboard
+	const [flag, setFlag] = useState(false)
+
+	//in questo stato è contenuto il JSON che viene restituito dalle API
+	let { data, setData } = useContext(UserContext)
+
+	const apri=useNavigate()
+	let token = null
+
 	useEffect(() => {
 		/*
-			Appena viene redirezionato verso questa pagina avverrà la chiamata alle API, il token va recuperato dall'URL e mi permette
-			di prendere la stringa che compone il token a partire dal "#" che segnala l'inizio del token
+		Appena viene redirezionato verso questa pagina avverrà la chiamata alle API, il token va recuperato dall'URL e mi permette
+		di prendere la stringa che compone il token a partire dal "#" che segnala l'inizio del token
 		*/
 		const rawToken = window.location.hash
-		const parametri = new URLSearchParams(rawToken.substring(1))
-		const extractedToken = parametri.get("access_token")
-		setToken(extractedToken)
+		
+		if (rawToken != null && rawToken != "") {
+			//Rimuovo il simbolo '#' e ottiengo il token, ma ci sono ancora altri parametri che non servono				
+			//La funzione URLSearchParams() permette di analizzare automaticamente l'URL che gli viene  passato e in automantico ne 
+			//restituisce i rispettivi chave valore, in maniera tale da facilitare la ricerca del token
+			
+			const parametri = new URLSearchParams(rawToken.substring(1))
+			//cerca nel URL quindi in parametri una chiave di valore "access_token" e ne restituisci il valore nella variabile token
+			token = parametri.get("access_token")
+			//una volta ottenuto il token si può fare la chiamata alle API		
+		}
 
-		fetch(URL, {
-			method: "GET",
-			headers: {
-				"Authorization": `Bearer ${token}`,
-			},
-		})
-		.then((testo) => testo.json())
-		.then((dati) => {
-			setData(dati)
-			setUserData(dati)
-			console.log("Risposta prima fetch:", dati)
-		})
+
+		// //chiamta al API
+		// fetch(URL,{
+		// 	//GET perchè ho bisgono di ricevere un JSON
+		// 	method:"GET",
+		// 	headers:{
+		// 		//per fare la chiamata alle API bisogna passare l'access token
+		// 		"Authorization":`Bearer ${token}`
+		// 	}
+		// })
+		// .then(testo=>testo.json())
+		// .then((testoJson)=>{
+		// 	console.log("oggetto: " , testoJson)
+		// 	setData(testoJson)
+		// })
+
 	}, [])
 
-
-	useEffect(() => {
-		fetch(URL2, {
-			method: "GET",
-			headers: {
-				"Authorization": `Bearer ${token}`
-			},
+	//QUANDO VIENE CARICATO IL JSON, FACCIO UNA NUOVA CHIAMATA AL API PER OTTENERE I DATI DEGLI ARTISTI PREFERITI
+	useEffect(()=>{
+		fetch(URL2,{
+			method:"GET",
+			headers:{
+				//per fare la chiamata alle API bisogna passare l'access token
+				"Authorization":`Bearer ${token}`
+			}
 		})
-		.then((testo) => testo.json())
-		.then((dati) => {
+		.then(testo=>testo.json())
+		.then((datiJson)=>{
+			setData(datiJson)
 			setFlag(true)
 		})
-	}, [userData])
 
+	}, [token])
 
+	// Naviga una volta che i dati sono stati caricati
 	useEffect(() => {
 		if (flag) {
-			apri("/dashboard")
+			//l'utente viene reindirizzato alla pagina dove può decidere cosa fare con l'app
+			apri("/funzioni")
 		}
-	}, [flag])//reindirizza l'utente alla dashboard SOLAMENTE quando il flag passa a
+	}, [flag])
 
-	return(
-		<div></div>
-	)
+return (
+	<div></div>
+)
 }
 
 export default ApiCall

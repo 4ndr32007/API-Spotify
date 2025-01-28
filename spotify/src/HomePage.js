@@ -24,6 +24,7 @@ const HomePage = () => {
 							<option value="">Naviga</option>
 							<option value="/">Home</option>
 							<option value="/login">Login</option>
+							<option value="/funzioni">Pagina funzionalità</option>
 						</select>
 					</div>
 			</div>
