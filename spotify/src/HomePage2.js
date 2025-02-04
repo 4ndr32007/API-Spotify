@@ -18,15 +18,26 @@ const SecondHomePage = () => {
 			<h1>Benvenuto nella Dashboard</h1>
 			<p>Seleziona una delle opzioni per esplorare le funzionalità del sito:</p>
 			<input type="button" value="Visualizza Artisti Preferiti" className="btn" onClick={() => Naviga('top-artisti')} />
-
-		{/*CREARE LE ALTRE PAGINE PER OGNI FUNZIONE E MODIFICARE IL PARAMETRO ALLA NAVIGA*/}
-
-			<input type="button" value="Visualizza Album" className="btn" onClick={() => Naviga('/')} />
-			<input type="button" value="Visualizza Playlist" className="btn" onClick={() => Naviga('/')} />
-			<input type="button" value="Visualizza Profilo Utente" className="btn" onClick={() => Naviga('/')} />
-
+			<input type="button" value="Brani consigliati" className="btn" onClick={() => Naviga('canzoni-consigliate')} />
 		</div>
 	)
 }
 
 export default SecondHomePage
+
+
+/*
+	->🌍 Ottieni le classifiche globali
+			-Recupera le playlist più ascoltate di un paese
+				Endpoint: /v1/browse/categories/{category_id}/playlists
+	->📊 Scoprire contenuti popolari
+			-Recupera le playlist editoriali di Spotify
+				Endpoint: /v1/browse/featured-playlists
+			
+			-Recupera i nuovi album pubblicati
+				Endpoint: /v1/browse/new-releases
+			
+			-Recupera le categorie di Spotify (es: "rock", "hip-hop", "chill")
+				Endpoint: /v1/browse/categories
+			
+*/

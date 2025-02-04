@@ -71,3 +71,29 @@
 	margin-top: 10px;
 	padding: 5px 10px;
  }
+
+ #frecce {
+	position: fixed;          /* Posiziona il div in modo fisso rispetto alla finestra */
+	top: 20px;                /* Distanza dal bordo superiore */
+	left: 20px;               /* Distanza dal bordo sinistro */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.7); /* Sfondo scuro con trasparenza */
+	border-radius: 50%;      /* Rende il div rotondo */
+	width: 50px;             /* Imposta una larghezza fissa */
+	height: 50px;            /* Imposta un'altezza fissa */
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Aggiungi un'ombra per dare profondità */
+}
+
+#freccia{
+	font-size: 2rem;
+	color: white;            /* Colore bianco per la freccia */
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	padding: 10px;
+	border-radius: 50%;      /* Rende il bottone rotondo */
+	width: 100%;             /* Rende il bottone largo quanto il div */
+	height: 100%;            /* Rende il bottone alto quanto il div */
+}

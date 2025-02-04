@@ -1,0 +1,127 @@
+/* SpotifyRecommendations.css */
+
+/* Contenitore principale */
+.spotify-container {
+	max-width: 800px;
+	margin: 2rem auto;
+	padding: 2rem;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	background-color: #f8f9fa;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ }
+ 
+ /* Titoli */
+ .spotify-container h2,
+ .spotify-container h3 {
+	text-align: center;
+	color: #333;
+	margin-bottom: 1rem;
+ }
+ 
+ /* Form di ricerca */
+ .search-form {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 1.5rem;
+ }
+ 
+ .search-form input[type="text"] {
+	width: 60%;
+	padding: 0.6rem;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 1rem;
+ }
+ 
+ .search-form button {
+	padding: 0.6rem 1rem;
+	margin-left: 0.5rem;
+	background-color: #1db954;
+	border: none;
+	border-radius: 4px;
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+ }
+ 
+ .search-form button:hover {
+	background-color: #1ed760;
+ }
+ 
+ /* Liste */
+ ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+ }
+ 
+ ul li {
+	background-color: #fff;
+	margin: 0.5rem 0;
+	padding: 0.8rem;
+	border-radius: 4px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border: 1px solid #e0e0e0;
+ }
+ 
+ /* Bottoni generici */
+ button {
+	padding: 0.5rem 0.8rem;
+	background-color: #1db954;
+	border: none;
+	border-radius: 4px;
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+ }
+ 
+ button:hover {
+	background-color: #1ed760;
+ }
+ 
+ /* Bottoni per rimuovere (puoi differenziarli) */
+ .remove-btn {
+	background-color: #ff4b5c;
+	margin-left: 0.5rem;
+ }
+ 
+ .remove-btn:hover {
+	background-color: #ff6f7a;
+ }
+ 
+ /* Sezioni */
+ .section {
+	margin-bottom: 2rem;
+ }
+ 
+ /* Responsive */
+ @media (max-width: 600px) {
+	.search-form {
+	  flex-direction: column;
+	  align-items: center;
+	}
+ 
+	.search-form input[type="text"] {
+	  width: 90%;
+	  margin-bottom: 1rem;
+	}
+ 
+	.search-form button {
+	  margin-left: 0;
+	}
+ 
+	ul li {
+	  flex-direction: column;
+	  align-items: flex-start;
+	}
+ 
+	ul li button {
+	  margin-top: 0.5rem;
+	}
+ }
+ 

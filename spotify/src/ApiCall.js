@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from "./App.js"
 
@@ -12,12 +12,12 @@ const ApiCall = () => {
 	const [flag, setFlag] = useState(false)
 
 	//in questo stato è contenuto il JSON che viene restituito dalle API
-	let { data, setData } = useContext(UserContext)
+	let { data, setData, token, setToken } = useContext(UserContext)
 
 	const apri=useNavigate()
-	let token = null
 
-	useEffect(() => {
+	//appena accedi alla pagina ottine il token
+	useEffect(()=>{
 		/*
 		Appena viene redirezionato verso questa pagina avverrà la chiamata alle API, il token va recuperato dall'URL e mi permette
 		di prendere la stringa che compone il token a partire dal "#" che segnala l'inizio del token
@@ -31,10 +31,30 @@ const ApiCall = () => {
 			
 			const parametri = new URLSearchParams(rawToken.substring(1))
 			//cerca nel URL quindi in parametri una chiave di valore "access_token" e ne restituisci il valore nella variabile token
-			token = parametri.get("access_token")
+			setToken(parametri.get("access_token"))
 			//una volta ottenuto il token si può fare la chiamata alle API		
 		}
+	})
 
+	//successivamente al token viene fatta la chiamata
+	useEffect(() => {
+		if (!token) {
+			console.log("Token non ancora disponibile. Riprova fra un attimo.");
+			return 
+		}
+
+		fetch(URL2,{
+			method:"GET",
+			headers:{
+				//per fare la chiamata alle API bisogna passare l'access token
+				"Authorization":`Bearer ${token}`
+			}
+		})
+		.then(testo=>testo.json())
+		.then((datiJson)=>{
+			setData(datiJson)
+			setFlag(true)
+		})		
 
 		// //chiamta al API
 		// fetch(URL,{
@@ -51,28 +71,12 @@ const ApiCall = () => {
 		// 	setData(testoJson)
 		// })
 
-	}, [])
-
-	//QUANDO VIENE CARICATO IL JSON, FACCIO UNA NUOVA CHIAMATA AL API PER OTTENERE I DATI DEGLI ARTISTI PREFERITI
-	useEffect(()=>{
-		fetch(URL2,{
-			method:"GET",
-			headers:{
-				//per fare la chiamata alle API bisogna passare l'access token
-				"Authorization":`Bearer ${token}`
-			}
-		})
-		.then(testo=>testo.json())
-		.then((datiJson)=>{
-			setData(datiJson)
-			setFlag(true)
-		})
-
 	}, [token])
 
 	// Naviga una volta che i dati sono stati caricati
 	useEffect(() => {
 		if (flag) {
+			console.log(data)
 			//l'utente viene reindirizzato alla pagina dove può decidere cosa fare con l'app
 			apri("/funzioni")
 		}
@@ -118,12 +122,6 @@ export default ApiCall
 					->GET https://api.spotify.com/v1/me/tracks 	Recupera le tracce salvate nella libreria dell'utente.
 					->PUT https://api.spotify.com/v1/me/tracks 	Salva tracce nella libreria dell'utente.
 					->DELETE https://api.spotify.com/v1/me/tracks 	Rimuove tracce dalla libreria dell'utente.
-				
-				Riproduzione:
-					->PUT https://api.spotify.com/v1/me/player/play 	Avvia o riprende la riproduzione sul dispositivo attivo dell'utente.
-					->PUT https://api.spotify.com/v1/me/player/pause 	Mette in pausa la riproduzione.
-					->POST https://api.spotify.com/v1/me/player/next 	Salta alla traccia successiva.
-					->POST https://api.spotify.com/v1/me/player/previous 	Torna alla traccia precedente.
 				
 					Ricerca:
 					->GET https://api.spotify.com/v1/search 	Cerca contenuti (tracce, album, artisti, playlist) nel catalogo Spotify.

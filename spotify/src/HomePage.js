@@ -6,7 +6,6 @@ import "./HomePage.css"
 const HomePage = () => {
 	let apri=useNavigate()
 
-
 	const Spotify = () => {
 		window.open("https://www.spotify.com/it/", "_blank");
 	}
