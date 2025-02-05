@@ -10,6 +10,8 @@ const ApiCall = () => {
 
 	//quando cambia il valore di questo flag avviene la navigazione verso la dashboard
 	const [flag, setFlag] = useState(false)
+	const [chiamata, setChiamata] = useState(false)
+	
 
 	//in questo stato è contenuto il JSON che viene restituito dalle API
 	let { data, setData, token, setToken } = useContext(UserContext)
@@ -33,6 +35,7 @@ const ApiCall = () => {
 			//cerca nel URL quindi in parametri una chiave di valore "access_token" e ne restituisci il valore nella variabile token
 			setToken(parametri.get("access_token"))
 			//una volta ottenuto il token si può fare la chiamata alle API		
+			setChiamata(true)
 		}
 	})
 
@@ -71,7 +74,7 @@ const ApiCall = () => {
 		// 	setData(testoJson)
 		// })
 
-	}, [token])
+	}, [chiamata])
 
 	// Naviga una volta che i dati sono stati caricati
 	useEffect(() => {
