@@ -3,22 +3,22 @@ import { useNavigate } from 'react-router-dom'
 import './HomePage2.css'
 
 const SecondHomePage = () => {
-
 	const apri = useNavigate()
-	
-	//IMPLEMENTARE TUTTA LA LOGICA DI CONTROLLO DEL LOGIN
 
-	// Funzione per gestire il click su un'opzione e fare il redirect
 	const Naviga = (pag) => {
 		apri(`/${pag}`)
 	}
 
 	return (
 		<div id="contanier">
-			<h1>Benvenuto nella Dashboard</h1>
-			<p>Seleziona una delle opzioni per esplorare le funzionalità del sito:</p>
-			<input type="button" value="Visualizza Artisti Preferiti" className="btn" onClick={() => Naviga('top-artisti')} />
-			<input type="button" value="Brani consigliati" className="btn" onClick={() => Naviga('canzoni-consigliate')} />
+			
+			<div id="testo">
+				<h1 id="titolo">Benvenuto nella Dashboard</h1>
+				<p>Seleziona una delle opzioni per esplorare le funzionalità del sito</p>
+				<input type="button" value="Visualizza Artisti Preferiti" className="btn" onClick={() => Naviga('top-artisti')} />
+				<input type="button" value="Brani consigliati" className="btn" onClick={() => Naviga('canzoni-consigliate')} />
+			</div>
+		
 		</div>
 	)
 }

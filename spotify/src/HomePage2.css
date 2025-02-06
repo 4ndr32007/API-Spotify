@@ -1,33 +1,16 @@
-/* Container per la pagina */
-#container{
+#contanier{
 	background: linear-gradient(to top, #375534, #1a1313);
 	font-family: 'Inter', sans-serif;
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
 	text-align: center;
 }
 
-#btn {
-	background-color: #23e968;
-	border-radius: 25px;
-	color: rgb(0, 0, 0);
-	cursor: pointer;
-	font-size: 18px;
-	font-family: 'Inter', sans-serif;
-	font-weight: 800;
-	padding: 10px 20px;
-	width: 150px;
-	height: 50px;
+#titolo {
+	font-size: 2rem;
+	text-align: center;
+	margin-bottom: 20px;
+	color: #d7ff27;
 }
- 
-#btn:hover {
-	transform: scale(1.1);
-}
- 
-#btn:active {
-	transform: scale(0.85);
-}
- 

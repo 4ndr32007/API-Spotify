@@ -1,87 +1,69 @@
 import React, { useState, useEffect } from 'react'
+import "./Suggerimento.css"
 
-const SimilarTracks = () => {
-  const [artist, setArtist] = useState('') // Usa lo stato per memorizzare l'artista
-  const [track, setTrack] = useState('') // Usa lo stato per memorizzare la traccia
-  const [similarTracks, setSimilarTracks] = useState([])
-  const [loading, setLoading] = useState(false)
-  const [flag, setFlag] = useState(false)
+const API_KEY = 'd19e34ff4a77f9cc70aebc4869223dca'
 
-  useEffect(() => {
-    if (!artist || !track) {
-      console.log('Artist or track is empty, skipping API call.')
-      return
-    }
+const Suggerimento = () => {
 
-    setLoading(true)
-    console.log('Fetching similar tracks for:', artist, track)
+	const [artista, setArtista] = useState('')
+	const [canzone, setCanzone] = useState('')
+	const [data, setData] = useState([])
+	const [flag, setFlag] = useState(false)
 
-    const API_KEY = 'd19e34ff4a77f9cc70aebc4869223dca'
-    const url = `https://ws.audioscrobbler.com/2.0/?method=track.getsimilar&artist=${encodeURIComponent(artist)}&track=${encodeURIComponent(track)}&api_key=${API_KEY}&format=json&limit=60`
+	useEffect(() => {
+		if (!flag || !artista || !canzone) return
 
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('Data received from API:', data)
-        if (data.similartracks?.track) {
-          setSimilarTracks(data.similartracks.track)
-        } else {
-          console.log('No similar tracks found.')
-          setSimilarTracks([])
-        }
-      })
-      .finally(() => {
-        console.log('Loading finished.')
-        setLoading(false)
-        setFlag(false)
-      })
-  }, [flag])
+		setData([]) // Pulizia della lista prima della nuova ricerca
 
-  const handleSubmit = () => {
-	 setFlag(true)
-    console.log('Ricerca avviata con artista:', artist, 'e traccia:', track)
-    setSimilarTracks([])  // Svuotiamo la lista ad ogni invio
+		const url = `https://ws.audioscrobbler.com/2.0/?method=track.getSimilar&artist=${encodeURIComponent(artista)}&track=${encodeURIComponent(canzone)}&api_key=${API_KEY}&format=json&limit=60`
 
-  }
+		fetch(url)
+			.then((res) => res.json())
+			.then((data) => {
+			console.log(data) // Aggiungi un log per esaminare la struttura dei dati
+			if (data.similartracks && data.similartracks.track) {
+				setData(data.similartracks.track) // Accedi correttamente ai brani simili
+			} else {
+				setData([]) // Se non ci sono brani simili, pulisci i dati
+				alert("Nessun risultato")
+			}
+			})
+			.finally(() => {
+				setFlag(false)
+			})
+	}, [flag])
 
-  return (
-    <div>
-      <h2>Trova brani simili</h2>
-      <div>
-        <input
-          type="text"
-          placeholder="Artista"
-          value={artist}
-          onChange={(e) => setArtist(e.target.value)} // Usa setArtist per aggiornare lo stato
-        />
-        <input
-          type="text"
-          placeholder="Brano"
-          value={track}
-          onChange={(e) => setTrack(e.target.value)} // Usa setTrack per aggiornare lo stato
-        />
-        <input type="button" value="Carica" onClick={handleSubmit} />
-      </div>
+	const Cerca = () => {
+		setFlag(true)
+	}
 
-      {loading ? (
-        <p>Caricamento...</p>
-      ) : (
-        <ul>
-          {similarTracks.length > 0 ? (
-            similarTracks.map((track, index) => (
-              <li key={index}>
-                <a href={track.url} target="_blank" rel="noopener noreferrer">
-                  {track.name} - {track.artist.name}
-                </a>
-              </li>
-            ))
-          ) : (
-            <p>Nessun brano trovato.</p>
-          )}
-        </ul>
-      )}
-    </div>
-  )
+	return (
+		<div id="container">
+			<h2 id="titolo">Trova brani simili</h2>
+			<div id="dati">
+				<input type="text" className='txt' placeholder="Artista" onChange={(e) => setArtista(e.target.value)} />
+				<input type="text" className='txt' placeholder="Brano" onChange={(e) => setCanzone(e.target.value)} />
+				<input type="button" value="Cerca" className='btn' onClick={Cerca} />
+			</div>
+
+			<div className="cards">
+			{data.length > 0 ? (
+				data.map((el, i) => (
+					<div className="cardArtista" key={i}>
+						<div className="canzone-info">
+							<h2 className="canzone-nome">{el.name}</h2>
+							<h3 className="canzone-Artista">Artista:{el.artist.name}</h3>
+							<h4 className='canzone-riproduzioni'>Riproduzioni del brano:{el.playcount || "N/A"}</h4>
+							<a className="canzone-link" href={el.url} target="_blank" rel="noopener noreferrer">Vai al profilo Last.fm</a>
+						</div>
+					</div>
+				))
+			) : (
+				<p>Nessun risultato trovato</p>
+			)}
+			</div>
+		</div>
+	)
 }
 
-export default SimilarTracks
+export default Suggerimento
