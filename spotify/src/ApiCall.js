@@ -2,12 +2,9 @@ import React, { createContext, useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from "./App.js"
 
-
-const URL="https://api.spotify.com/v1/me"
-const URL2 = "https://api.spotify.com/v1/me/top/artists"
+const URL = "https://api.spotify.com/v1/me/top/artists"
 
 const ApiCall = () => {
-
 	//quando cambia il valore di questo flag avviene la navigazione verso la dashboard
 	const [flag, setFlag] = useState(false)
 	const [chiamata, setChiamata] = useState(false)
@@ -25,7 +22,6 @@ const ApiCall = () => {
 		di prendere la stringa che compone il token a partire dal "#" che segnala l'inizio del token
 		*/
 		const rawToken = window.location.hash
-		
 		if (rawToken != null && rawToken != "") {
 			//Rimuovo il simbolo '#' e ottiengo il token, ma ci sono ancora altri parametri che non servono				
 			//La funzione URLSearchParams() permette di analizzare automaticamente l'URL che gli viene  passato e in automantico ne 
@@ -35,6 +31,8 @@ const ApiCall = () => {
 			//cerca nel URL quindi in parametri una chiave di valore "access_token" e ne restituisci il valore nella variabile token
 			varToken=parametri.get("access_token")
 			setToken(parametri.get("access_token"))
+			console.log("Token raw:", window.location.hash);
+			console.log("Extracted Token:", varToken);
 			//una volta ottenuto il token si può fare la chiamata alle API		
 			setChiamata(true)
 		}
@@ -42,12 +40,12 @@ const ApiCall = () => {
 
 	//successivamente al token viene fatta la chiamata
 	useEffect(() => {
-		if ( varToken == null ) {
+		if( varToken == null ) {
 			console.log("Token non ancora disponibile. Riprova fra un attimo.");
 			return 
 		}
 
-		fetch(URL2,{
+		fetch(URL,{
 			method:"GET",
 			headers:{
 				//per fare la chiamata alle API bisogna passare l'access token
@@ -77,7 +75,6 @@ return (
 }
 
 export default ApiCall
-
 /*
 	IMPORTANTE:
 		- Questa pagina è necessaria per effettuare la chiamata alle API di Spotify e ottenere i dati dell'utente

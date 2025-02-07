@@ -14,7 +14,6 @@ const UrlBase = "https://accounts.spotify.com/authorize"
 
 const Login=()=>{
 
-
 	const AccessoSpotify = () => {
 		const authURL = `${UrlBase}?client_id=${client_id}&redirect_uri=${redirect_url}&scope=${scope}&response_type=token&show_dialog=true`
 		// Naviga alla pagina di autorizzazione di Spotify
