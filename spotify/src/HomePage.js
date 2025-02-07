@@ -28,7 +28,6 @@ const HomePage = () => {
 					</div>
 			</div>
 
-
 			<div id="container-intestazione">
 				<h1>Benvenuto su Sound JS</h1>
 				<h2>Esplora il mondo della musica in un click</h2>

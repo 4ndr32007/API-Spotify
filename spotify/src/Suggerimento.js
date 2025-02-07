@@ -7,27 +7,25 @@ const Suggerimento = () => {
 
 	const [artista, setArtista] = useState('')
 	const [canzone, setCanzone] = useState('')
-	const [data, setData] = useState([])
+	const [data, setData] = useState([])	//riceve il JSON dal API
 	const [flag, setFlag] = useState(false)
 
 	useEffect(() => {
-		if (!flag || !artista || !canzone) return
+		if ( !artista || !canzone ) return
 
 		setData([]) // Pulizia della lista prima della nuova ricerca
-
 		const url = `https://ws.audioscrobbler.com/2.0/?method=track.getSimilar&artist=${encodeURIComponent(artista)}&track=${encodeURIComponent(canzone)}&api_key=${API_KEY}&format=json&limit=60`
 
 		fetch(url)
-			.then((res) => res.json())
+			.then((testo) => testo.json())
 			.then((data) => {
-			console.log(data) // Aggiungi un log per esaminare la struttura dei dati
-			if (data.similartracks && data.similartracks.track) {
-				setData(data.similartracks.track) // Accedi correttamente ai brani simili
-			} else {
-				setData([]) // Se non ci sono brani simili, pulisci i dati
-				alert("Nessun risultato")
-			}
-			})
+				console.log(data) // Aggiungi un log per esaminare la struttura dei dati
+				if ( data.similartracks && data.similartracks.track ) {
+					setData(data.similartracks.track) // Accedi correttamente ai brani simili
+				} else {
+					alert("Nessun risultato")
+				}
+				})
 			.finally(() => {
 				setFlag(false)
 			})

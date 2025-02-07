@@ -18,7 +18,6 @@ const SecondHomePage = () => {
 				<input type="button" value="Visualizza Artisti Preferiti" className="btn" onClick={() => Naviga('top-artisti')} />
 				<input type="button" value="Brani consigliati" className="btn" onClick={() => Naviga('canzoni-consigliate')} />
 			</div>
-		
 		</div>
 	)
 }

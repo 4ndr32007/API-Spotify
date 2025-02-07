@@ -11,7 +11,7 @@ const ApiCall = () => {
 	//quando cambia il valore di questo flag avviene la navigazione verso la dashboard
 	const [flag, setFlag] = useState(false)
 	const [chiamata, setChiamata] = useState(false)
-	
+	let varToken=null
 
 	//in questo stato è contenuto il JSON che viene restituito dalle API
 	let { data, setData, token, setToken } = useContext(UserContext)
@@ -33,6 +33,7 @@ const ApiCall = () => {
 			
 			const parametri = new URLSearchParams(rawToken.substring(1))
 			//cerca nel URL quindi in parametri una chiave di valore "access_token" e ne restituisci il valore nella variabile token
+			varToken=parametri.get("access_token")
 			setToken(parametri.get("access_token"))
 			//una volta ottenuto il token si può fare la chiamata alle API		
 			setChiamata(true)
@@ -41,7 +42,7 @@ const ApiCall = () => {
 
 	//successivamente al token viene fatta la chiamata
 	useEffect(() => {
-		if (!token) {
+		if ( varToken == null ) {
 			console.log("Token non ancora disponibile. Riprova fra un attimo.");
 			return 
 		}
@@ -50,7 +51,7 @@ const ApiCall = () => {
 			method:"GET",
 			headers:{
 				//per fare la chiamata alle API bisogna passare l'access token
-				"Authorization":`Bearer ${token}`
+				"Authorization":`Bearer ${varToken}`
 			}
 		})
 		.then(testo=>testo.json())
@@ -58,21 +59,6 @@ const ApiCall = () => {
 			setData(datiJson)
 			setFlag(true)
 		})		
-
-		// //chiamta al API
-		// fetch(URL,{
-		// 	//GET perchè ho bisgono di ricevere un JSON
-		// 	method:"GET",
-		// 	headers:{
-		// 		//per fare la chiamata alle API bisogna passare l'access token
-		// 		"Authorization":`Bearer ${token}`
-		// 	}
-		// })
-		// .then(testo=>testo.json())
-		// .then((testoJson)=>{
-		// 	console.log("oggetto: " , testoJson)
-		// 	setData(testoJson)
-		// })
 
 	}, [chiamata])
 
@@ -106,9 +92,8 @@ export default ApiCall
 			-dal momento in cui vogliamo ottenere dati più precisi sul utente va fatta un altra chiamata con un altro URL
 				Artisti:
 					->GET https://api.spotify.com/v1/artists/{id} 	Recupera informazioni su un artista specifico.
-					->Album:
-
-					->GET https://api.spotify.com/v1/albums/{id 	Ottiene dettagli su un album specifico.
+				->Album:
+					->GET https://api.spotify.com/v1/albums/{id} 	Ottiene dettagli su un album specifico.
 					
 				Tracce:
 					->GET https://api.spotify.com/v1/tracks/{id} 	Recupera informazioni su una traccia specifica.
@@ -120,12 +105,13 @@ export default ApiCall
 					->PUT https://api.spotify.com/v1/playlists/{playlist_id} 	Modifica una playlist esistente.
 					->POST https://api.spotify.com/v1/playlists/{playlist_id}/tracks 	Aggiunge tracce a una playlist.
 					->DELETE https://api.spotify.com/v1/playlists/{playlist_id}/tracks 	Rimuove tracce da una playlist.
-					->Libreria Utente:
+					
+				->Libreria Utente:
 
 					->GET https://api.spotify.com/v1/me/tracks 	Recupera le tracce salvate nella libreria dell'utente.
 					->PUT https://api.spotify.com/v1/me/tracks 	Salva tracce nella libreria dell'utente.
 					->DELETE https://api.spotify.com/v1/me/tracks 	Rimuove tracce dalla libreria dell'utente.
 				
-					Ricerca:
-					->GET https://api.spotify.com/v1/search 	Cerca contenuti (tracce, album, artisti, playlist) nel catalogo Spotify.
+				Ricerca:
+				->GET https://api.spotify.com/v1/search 	Cerca contenuti (tracce, album, artisti, playlist) nel catalogo Spotify.
 */
