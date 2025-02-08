@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import './HomePage2.css'
 
-const SecondHomePage = () => {
+const HomePage2 = () => {
 	const apri = useNavigate()
 
 	const Naviga = (pag) => {
@@ -10,19 +10,34 @@ const SecondHomePage = () => {
 	}
 
 	return (
-		<div id="contanier">
-			
-			<div id="testo">
-				<h1 id="titolo">Benvenuto nella Dashboard</h1>
-				<p>Seleziona una delle opzioni per esplorare le funzionalità del sito</p>
-				<input type="button" value="Visualizza Artisti Preferiti" className="btn" onClick={() => Naviga('top-artisti')} />
-				<input type="button" value="Brani consigliati" className="btn" onClick={() => Naviga('canzoni-consigliate')} />
-			</div>
+		<div id="container">
+				<header id="header">
+					<h1 id="titolo">Benvenuto nella Dashboard Musicale</h1>
+					<p>Esplora i tuoi artisti preferiti, scopri nuove canzoni e rimani aggiornato con le ultime classifiche!</p>
+				</header>
+
+				<div id="opzioni">
+					<div className="card" onClick={() => Naviga('top-artisti')}>
+						<h2>🎤 Artisti Preferiti</h2>
+						<p>Scopri i tuoi artisti più ascoltati.</p>
+					</div>
+
+					<div className="card" onClick={() => Naviga('canzoni-consigliate')}>
+						<h2>🎶 Brani Consigliati</h2>
+						<p>Ascolta nuove canzoni basate sui tuoi gusti.</p>
+					</div>
+
+					<div className="card" onClick={() => Naviga('classifiche')}>
+						<h2>📈 Brani Preferiti</h2>
+						<p>Scopri le canzoni ascoltate al mondo.</p>
+					</div>
+				</div>
+
 		</div>
 	)
 }
 
-export default SecondHomePage
+export default HomePage2
 
 
 /*

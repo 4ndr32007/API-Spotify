@@ -11,7 +11,6 @@ const redirect_url = "http://localhost:3000/callback"
 const scope = "playlist-read-private%20playlist-read-collaborative%20playlist-modify-public%20playlist-modify-private%20user-top-read%20user-library-read%20user-library-modify"
 const UrlBase = "https://accounts.spotify.com/authorize"
 
-
 const Login=()=>{
 
 	const AccessoSpotify = () => {

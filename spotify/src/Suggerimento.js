@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import "./Suggerimento.css"
 
+//API key della seconda API
 const API_KEY = 'd19e34ff4a77f9cc70aebc4869223dca'
 
 const Suggerimento = () => {

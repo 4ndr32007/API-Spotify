@@ -1,9 +1,12 @@
 // Questa è la prima pagina che viene mostrata appena si apre il sito 
-import React from 'react'
+import React, { useContext } from 'react'
+import { UserContext } from "./App.js"
 import { useNavigate } from 'react-router-dom'
 import "./HomePage.css"
 
 const HomePage = () => {
+	let { token } = useContext(UserContext)
+	
 	let apri=useNavigate()
 
 	const Spotify = () => {
@@ -11,7 +14,11 @@ const HomePage = () => {
 	}
 
 	const handleNavigation = (event) => {
-		apri(event.target.value)
+		if((token == null || token == "") && (event.target.value == "/funzioni")){
+			alert("Devi effettuare prima il login!!!")
+		}else{
+			apri(event.target.value)
+		}
 	}
 
 	return (
