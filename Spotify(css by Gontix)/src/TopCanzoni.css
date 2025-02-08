@@ -1,0 +1,91 @@
+/* Contenitore principale */
+.top-tracks-container {
+	text-align: center;
+	padding: 20px;
+	background-color: #121212;
+	color: white;
+	min-height: 100vh;
+}
+
+/* Titolo */
+h2 {
+	font-size: 2rem;
+	margin-bottom: 20px;
+}
+
+/* Select e Bottone */
+.filters {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 20px;
+}
+
+.filters label {
+	font-size: 1rem;
+}
+
+.filters select {
+	padding: 8px;
+	font-size: 1rem;
+	border-radius: 5px;
+	border: none;
+}
+
+.filters button {
+	padding: 8px 15px;
+	font-size: 1rem;
+	background-color: #1DB954;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background 0.3s ease;
+}
+
+.filters button:hover {
+	background-color: #17a74a;
+}
+
+/* Lista delle canzoni */
+.track-list {
+	list-style: none;
+	padding: 0;
+}
+
+.track-item {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	background: #1e1e1e;
+	padding: 10px;
+	margin: 5px auto;
+	border-radius: 8px;
+	width: 50%;
+	transition: background 0.3s ease;
+}
+
+.track-item:hover {
+	background: #333;
+}
+
+.track-item img {
+	width: 50px;
+	height: 50px;
+	border-radius: 5px;
+}
+
+.track-info {
+	text-align: left;
+}
+
+.track-name {
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+.track-artist {
+	font-size: 1rem;
+	color: #b3b3b3;
+}

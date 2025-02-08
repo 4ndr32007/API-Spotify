@@ -1,0 +1,95 @@
+.DashBoard {
+	font-family: 'Inter', sans-serif;
+	padding: 20px;
+	background-color: #121212;
+	color: #ffffff;
+}
+
+#titolo {
+	font-size: 2rem;
+	text-align: center;
+	margin-bottom: 20px;
+	color: #d4d3d3;
+}
+
+.artisti-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	gap: 20px;
+	padding: 10px;
+}
+
+.cardArtista {
+	background: #0e0e13;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	transition: transform 0.3s ease;
+	height: 450px;
+	width: 300px;
+	margin: 10px;
+}
+
+.cardArtista:hover {
+	transform: translateY(-10px);
+}
+
+.artista-img {
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+	border-radius: 8px;
+}
+
+.artista-info {
+	padding: 15px;
+}
+
+.artista-name {
+	font-size: 1.5rem;
+	color: #F5F5FA;
+	margin-bottom: 10px;
+}
+
+.artista-followers,
+.artista-genres {
+	font-size: 0.9rem;
+	color: #e7e7e9;
+	margin: 5px 0;
+}
+
+.artista-link {
+	display: inline-block;
+	margin-top: 10px;
+	padding: 5px 10px;
+}
+
+#frecce {
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.7);
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#freccia{
+	font-size: 2rem;
+	color: white;            
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	padding: 10px;
+	border-radius: 50%;      
+	width: 100%;             
+	height: 100%;            
+}
