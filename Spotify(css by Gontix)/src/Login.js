@@ -25,9 +25,9 @@ const Login=()=>{
 			<div className="login-box">
 				<img src="/Spotify_Logo_Green.png" alt="Spotify Logo" className="img" />
 				<h1>Benvenuto!</h1>
-				<p>Accedi con Spotify per esplorare le tue playlist preferite.</p>
+				<p>Accedi con Spotify per esplorare le tue playlist preferite</p>
 				<input type="button" value="Accedi con Spotify" className="btn" onClick={AccessoSpotify} />
-				<p className="privacy-text">Accedendo accetti la <a href="https://www.spotify.com/legal/privacy-policy/" target="new" >Privacy Policy di Spotify</a>.</p>
+				<p className="privacy-text">Accedendo accetti la <a href="https://www.spotify.com/legal/privacy-policy/" target="new" >Privacy Policy</a> di Spotify</p>
 			</div>
 		</div>
 	)

@@ -192,16 +192,22 @@ h4 {
 	transform: scale(0.95);
 }
 
-.privacy-text {
-	margin-top: 20px;
-	font-size: 14px;
+.footer-bottom{
+	margin-left: 20vh;
+}
+
+.ig-text {
 	color: #bbb;
 }
-.privacy-text a {
-	color: #1DB954;
+.ig-text a {
+	color: white;
 	text-decoration: none;
 }
 
-.privacy-text a:hover {
+.ig-text a:hover {
 	text-decoration: underline;
+}
+
+.footer-section-links{
+	margin-top: 10vh;
 }

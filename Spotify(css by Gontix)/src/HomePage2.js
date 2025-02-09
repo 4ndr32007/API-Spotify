@@ -13,23 +13,23 @@ const HomePage2 = () => {
 		<div id="container">
 				<header id="header">
 					<h1 id="titolo">Benvenuto nella Dashboard Musicale</h1>
-					<p>Esplora i tuoi artisti preferiti, scopri nuove canzoni e rimani aggiornato con le ultime classifiche!</p>
+					<p>Esplora i tuoi artisti preferiti, scopri nuove canzoni e rimani aggiornato con le ultime classifiche</p>
 				</header>
 
 				<div id="opzioni">
 					<div className="card" onClick={() => Naviga('top-artisti')}>
 						<h2>🎤 Artisti Preferiti</h2>
-						<p>Scopri i tuoi artisti più ascoltati.</p>
+						<p>Scopri i tuoi artisti<br/>preferiti e più ascoltati</p>
 					</div>
 
 					<div className="card" onClick={() => Naviga('canzoni-consigliate')}>
 						<h2>🎶 Brani Consigliati</h2>
-						<p>Ascolta nuove canzoni basate sui tuoi gusti.</p>
+						<p>Ascolta nuove canzoni<br/>basate sui tuoi gusti</p>
 					</div>
 
 					<div className="card" onClick={() => Naviga('classifiche')}>
 						<h2>📈 Brani Preferiti</h2>
-						<p>Scopri le canzoni ascoltate al mondo.</p>
+						<p>Scopri le canzoni che<br/>hai ascoltato di più</p>
 					</div>
 				</div>
 

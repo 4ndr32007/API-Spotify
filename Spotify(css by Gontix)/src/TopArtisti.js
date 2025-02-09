@@ -12,17 +12,19 @@ const Visualizza = () => {
 
 	return data.items.map((el, i) => {
 		return (
-		<div className="artista" key={i}>
-			<div className="cardArtista">
-				<img className="artista-img" src={el.images[0].url} alt={el.name}/>
-				<div className="artista-info">
-					<h2 className="artista-name">{el.name}</h2>
-					<p className="artista-followers">  Follower: {el.followers.total.toLocaleString()}</p>
-					<p className="artista-genres">  Generi: {el.genres.length > 0 ? el.genres.join(', ') : 'N/A'}</p>
-					<a className="artista-link"  href={el.external_urls.spotify}  target="_blank"> Vai al profilo Spotify</a>
+			
+				<div className="artista" key={i}>
+					<div className="Artista">
+						<img className="artista-img" src={el.images[0].url} alt={el.name}/>
+						<div className="artista-info">
+							<h2 className="artista-name">{el.name}</h2>
+							<p className="artista-followers">  Follower: {el.followers.total.toLocaleString()}</p>
+							<p className="artista-genres">  Generi: {el.genres.length > 0 ? el.genres.join(', ') : 'N/A'}</p>
+							<a className="artista-link"  href={el.external_urls.spotify}  target="_blank"> Vai al profilo Spotify</a>
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
+		
 		)
 	})
 }

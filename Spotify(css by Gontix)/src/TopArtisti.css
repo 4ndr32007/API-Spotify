@@ -1,7 +1,7 @@
 .DashBoard {
 	font-family: 'Inter', sans-serif;
 	padding: 20px;
-	background-color: #121212;
+	background: #1d1d1d;
 	color: #ffffff;
 }
 
@@ -9,7 +9,7 @@
 	font-size: 2rem;
 	text-align: center;
 	margin-bottom: 20px;
-	color: #d4d3d3;
+	color: #23e968;
 }
 
 .artisti-container {
@@ -19,30 +19,29 @@
 	padding: 10px;
 }
 
-.cardArtista {
-	background: #0e0e13;
+.Artista {
 	border-radius: 10px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	background-color: #0e0e13;
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
 	transition: transform 0.3s ease;
-	height: 450px;
-	width: 300px;
 	margin: 10px;
 }
 
-.cardArtista:hover {
+.Artista:hover {
 	transform: translateY(-10px);
 }
 
 .artista-img {
-	width: 100%;
+	width: 60%;
 	height: 200px;
 	object-fit: cover;
 	border-radius: 8px;
+	margin-top: 20px;
 }
 
 .artista-info {
@@ -68,6 +67,13 @@
 	padding: 5px 10px;
 }
 
+a.artista-link {
+	display: inline-block;
+	margin-top: 10px;
+	padding: 5px 10px;
+	color: #23e968;
+}
+
 #frecce {
 	position: fixed;
 	top: 20px;
@@ -75,7 +81,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: #23e968;
 	border-radius: 50%;
 	width: 50px;
 	height: 50px;
@@ -84,7 +90,7 @@
 
 #freccia{
 	font-size: 2rem;
-	color: white;            
+	color: black;            
 	background: transparent;
 	border: none;
 	cursor: pointer;

@@ -2,7 +2,7 @@
 .top-tracks-container {
 	text-align: center;
 	padding: 20px;
-	background-color: #121212;
+	background: linear-gradient(to top, #375534, black);
 	color: white;
 	min-height: 100vh;
 }
@@ -78,14 +78,28 @@ h2 {
 
 .track-info {
 	text-align: left;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin-left: 5vh;
 }
 
 .track-name {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
 	font-size: 1.2rem;
 	font-weight: bold;
 }
 
 .track-artist {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
 	font-size: 1rem;
 	color: #b3b3b3;
+	margin-left: 5vh;
 }

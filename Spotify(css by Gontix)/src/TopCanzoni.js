@@ -1,8 +1,11 @@
 import React, { useContext, useState } from "react"
 import { UserContext } from "./App.js"
 import "./TopCanzoni.css"
+import { useNavigate } from 'react-router-dom'
+
 
 const TopCanzoni = () => {
+	const apri = useNavigate()
 	const [tracks, setTracks] = useState([])
 	const [loading, setLoading] = useState(false)
 	const [timeRange, setTimeRange] = useState("medium_term")
@@ -31,6 +34,10 @@ const TopCanzoni = () => {
 		})
 	}
 
+	const goBack = () => {
+		apri(-1)
+	}
+
 	return (
 		<div className="top-tracks-container">
 				<h2>🎵 Le Tue Canzoni Più Ascoltate 🎵</h2>
@@ -46,8 +53,7 @@ const TopCanzoni = () => {
 					<button onClick={Chiamata}>🔍 Cerca</button>
 				</div>
 
-				{/* Mostra il caricamento */}
-				{loading && <p>⏳ Caricamento...</p>}
+				
 
 				{/* Lista delle canzoni */}
 				<ul className="track-list">
@@ -67,6 +73,9 @@ const TopCanzoni = () => {
 						!loading && <p>🔍 Nessuna traccia trovata, premi "Cerca".</p>
 					)}
 				</ul>
+			<div id="frecce">
+				<input type='button' value="←" onClick={goBack} id="freccia" />
+			</div>
 		</div>
 	)
 }

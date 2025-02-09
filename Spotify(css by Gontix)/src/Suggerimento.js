@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import "./Suggerimento.css"
+import { useNavigate } from 'react-router-dom'
 
 //API key della seconda API
 const API_KEY = 'd19e34ff4a77f9cc70aebc4869223dca'
 
 const Suggerimento = () => {
+
+	const apri = useNavigate()
 
 	const [artista, setArtista] = useState('')
 	const [canzone, setCanzone] = useState('')
@@ -36,6 +39,10 @@ const Suggerimento = () => {
 		setFlag(true)
 	}
 
+	const goBack = () => {
+		apri(-1)
+	}
+
 	return (
 		<div id="container">
 			<h2 id="titolo">Trova brani simili</h2>
@@ -53,13 +60,15 @@ const Suggerimento = () => {
 							<h2 className="canzone-nome">{el.name}</h2>
 							<h3 className="canzone-Artista">Artista:{el.artist.name}</h3>
 							<h4 className='canzone-riproduzioni'>Riproduzioni del brano:{el.playcount || "N/A"}</h4>
-							<a className="canzone-link" href={el.url} target="_blank" rel="noopener noreferrer">Vai al profilo Last.fm</a>
 						</div>
 					</div>
 				))
 			) : (
 				<p>Nessun risultato trovato</p>
 			)}
+			</div>
+			<div id="frecce">
+				<input type='button' value="←" onClick={goBack} id="freccia" />
 			</div>
 		</div>
 	)
